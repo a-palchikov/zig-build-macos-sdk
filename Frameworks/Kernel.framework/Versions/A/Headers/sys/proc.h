@@ -125,7 +125,7 @@ extern int proc_isinferior(int pid1, int pid2);
 void proc_name(int pid, char * buf, int size);
 /* returns the 32-byte name if it exists, otherwise returns the 16-byte name */
 extern char *proc_best_name(proc_t p);
-/* This routine is simillar to proc_name except it returns for current process */
+/* this routine is similar to proc_name except it returns for current process */
 void proc_selfname(char * buf, int size);
 
 /* find a process with a given pid. This comes with a reference which needs to be dropped by proc_rele */
@@ -175,7 +175,7 @@ extern int proc_in_teardown(proc_t);
 extern int proc_suser(proc_t p);
 
 /* returns the cred assicaited with the process; temporary api */
-__deprecated_msg("proc_ucred is unsafe, use kauth_cred_proc_ref()")
+__deprecated_msg("proc_ucred is unsafe, use kauth_cred_proc_ref() or current_cached_proc_cred()")
 kauth_cred_t proc_ucred(proc_t p);
 
 /* returns 1 if the process is tainted by uid or gid changes,e else 0 */

@@ -113,7 +113,7 @@ private:
 	IOReturn removePropertyWithGUIDAndName(const uuid_t guid, const char *name);
 	IOReturn setPropertyWithGUIDAndName(const uuid_t guid, const char *name, OSObject *anObject);
 
-	void syncInternal(bool rateLimit);
+	IOReturn syncInternal(bool rateLimit);
 	bool safeToSync(void);
 
 public:
@@ -122,10 +122,11 @@ public:
 
 	virtual void registerNVRAMController(IONVRAMController *controller);
 
-	virtual void sync(void);
+	virtual IOReturn sync(void);
 	virtual void reload(void);
 
 	virtual bool serializeProperties(OSSerialize *s) const APPLE_KEXT_OVERRIDE;
+	virtual OSPtr<OSDictionary> dictionaryWithProperties(void) const APPLE_KEXT_OVERRIDE;
 	virtual OSPtr<OSObject> copyProperty(const OSSymbol *aKey) const APPLE_KEXT_OVERRIDE;
 	virtual OSPtr<OSObject> copyProperty(const char *aKey) const APPLE_KEXT_OVERRIDE;
 	virtual OSObject *getProperty(const OSSymbol *aKey) const APPLE_KEXT_OVERRIDE;

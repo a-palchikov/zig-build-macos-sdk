@@ -1,4 +1,4 @@
-/* iig(DriverKit-324.60.3) generated from IOExtensiblePaniclog.iig */
+/* iig(DriverKit-400.0.2) generated from IOExtensiblePaniclog.iig */
 
 /* IOExtensiblePaniclog.iig:1-53 */
 /*
